@@ -5,10 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name lib src/index.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "popper.js": "^1.14.6",
+    "v-click-outside-x": "^4.1.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -19,6 +22,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
