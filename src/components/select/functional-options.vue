@@ -15,7 +15,7 @@
             slotUpdateHook: {
                 type: Function,
                 default: () => {}
-            },
+            }
         },
         functional: true,
         render(h, {props, parent}){

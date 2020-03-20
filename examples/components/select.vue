@@ -7,31 +7,31 @@
         </Select>
 
         <h2 style="margin-top:20px">Option Group</h2>
-        <Select v-model="model12">
+        <Select v-model="model1">
             <OptionGroup label="分组">
                 <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </OptionGroup>
         </Select>
 
         <h2 style="margin-top:20px">Option Group with filter</h2>
-        <Select v-model="model11" filterable clearable>
+        <Select v-model="model2" filterable clearable>
             <OptionGroup label="分组">
                 <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </OptionGroup>
         </Select>
 
         <h2 style="margin-top:20px">Disabled Select</h2>
-        <Select v-model="model5" disabled style="width:200px">
+        <Select v-model="model3" disabled style="width:200px">
             <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
-        <Select v-model="model6" style="width:200px">
+        <Select v-model="model4" style="width:200px">
             <Option value="beijing">New York</Option>
             <Option value="shanghai" disabled>London</Option>
             <Option value="shenzhen">Sydney</Option>
         </Select>
 
         <h2 style="margin-top:20px">Custom option template</h2>
-        <Select v-model="model9" style="width:200px">
+        <Select v-model="model5" style="width:200px">
             <Option value="New York" label="New York">
                 <span>New York</span>
                 <span style="float:right;color:#ccc">America</span>
@@ -47,12 +47,12 @@
         </Select>
 
         <h2 style="margin-top:20px">Select with multiple options</h2>
-        <Select v-model="model10" multiple style="width:260px">
+        <Select v-model="model6" multiple style="width:260px">
             <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
 
         <h2 style="margin-top:20px">Custom icon</h2>
-        <Select v-model="model15" prefix="ios-home" style="width:200px">
+        <Select v-model="model7" prefix="ios-home" style="width:200px">
             <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
     </div>
@@ -113,8 +113,13 @@ export default {
                     label: 'Canberra'
                 }
             ],
-            model11: '',
-            model12: ''
+            model1: '',
+            model2: '',
+            model3: '',
+            model4: '',
+            model5: '',
+            model6: '',
+            model7: ''
         }
     }
 };

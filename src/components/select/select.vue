@@ -358,7 +358,7 @@
                 const slotOptions = (this.slotOptions || []);
                 let optionCounter = -1;
                 const currentIndex = this.focusIndex;
-                const selectedValues = this.values.filter(Boolean).map(({value}) => value);
+                const selectedValues = this.values.filter(Boolean).map(({ value}) => value);
                 if (this.autoComplete) {
                     const copyChildren = (node, fn) => {
                         return {
@@ -387,7 +387,7 @@
                         // remove filtered children
                         if (this.filterable){
                             children = children.filter(
-                                ({componentOptions}) => this.validateOption(componentOptions)
+                                ({ componentOptions }) => this.validateOption(componentOptions)
                             );
                         }
 
@@ -398,7 +398,7 @@
                         });
 
                         // keep the group if it still has children  // fix #4371
-                        if (children.length > 0) selectOptions.push({...option,componentOptions:{...cOptions,children:children}});
+                        if (children.length > 0) selectOptions.push({ ...option,componentOptions: { ...cOptions, children:children } });
                     } else {
                         // ignore option if not passing filter
                         if (this.filterQueryChange) {
@@ -412,18 +412,18 @@
 
                 return selectOptions;
             },
-            flatOptions(){
+            flatOptions() {
                 return extractOptions(this.selectOptions);
             },
-            selectTabindex(){
+            selectTabindex() {
                 return this.disabled || this.filterable ? -1 : 0;
             },
-            remote(){
+            remote() {
                 return typeof this.remoteMethod === 'function';
             },
         },
         methods: {
-            setQuery(query){ // PUBLIC API
+            setQuery(query) { // PUBLIC API
                 if (query) {
                     this.onQueryChange(query);
                     return;
@@ -435,12 +435,12 @@
                     this.lastRemoteQuery = '';
                 }
             },
-            clearSingleSelect(){ // PUBLIC API
+            clearSingleSelect() { // PUBLIC API
                 this.hideMenu();
                 if (this.clearable) this.reset();
                 this.$emit('on-clear'); // #6331
             },
-            getOptionData(value){
+            getOptionData(value) {
                 const option = this.flatOptions.find(({componentOptions}) => componentOptions.propsData.value === value);
                 if (!option) return null;
                 const label = getOptionLabel(option);
@@ -449,7 +449,7 @@
                     label: label,
                 };
             },
-            getInitialValue(){
+            getInitialValue() {
                 const {multiple, remote, value} = this;
                 let initialValue = Array.isArray(value) ? value : [value];
                 if (!multiple && (typeof initialValue[0] === 'undefined' || (String(initialValue[0]).trim() === '' && !Number.isFinite(initialValue[0])))) initialValue = [];
@@ -461,7 +461,7 @@
                     return Boolean(item) || item === 0;
                 });
             },
-            processOption(option, values, isFocused){
+            processOption(option, values, isFocused) {
                 if (!option.componentOptions) return option;
                 const optionValue = option.componentOptions.propsData.value;
                 const disabled = option.componentOptions.propsData.disabled;
@@ -482,7 +482,7 @@
                 };
             },
 
-            validateOption({children, elm, propsData}){
+            validateOption({children, elm, propsData}) {
                 const label = propsData.label || '';
                 const textContent = (elm && elm.textContent) || (children || []).reduce((str, node) => {
                     const nodeText = node.elm ? node.elm.textContent : node.text;
@@ -508,15 +508,15 @@
                     this.broadcast('Drop', 'on-update-popper');
                 }
             },
-            updateFocusIndex(){
+            updateFocusIndex() {
                 this.focusIndex = this.flatOptions.findIndex((opt) => {
                     if (!opt || !opt.componentOptions) return false;
                     return opt.componentOptions.propsData.value === this.publicValue;
                 });
             },
-            hideMenu () {
+            hideMenu() {
                 this.toggleMenu(null, false);
-                setTimeout(() =>{
+                setTimeout(() => {
                     this.unchangedQuery = true;
                     // resolve if we use filterable, dropItem not selected #6349
                     this.hideMenuTimer = setTimeout(()=>{
@@ -525,7 +525,7 @@
                     });
                 }, ANIMATION_TIMEOUT);
             },
-            onClickOutside(event){
+            onClickOutside(event) {
                 if (this.visible) {
                     if (event.type === 'mousedown') {
                         event.preventDefault();
@@ -559,14 +559,14 @@
                     this.isFocused = false;
                 }
             },
-            reset(){
+            reset() {
                 this.query = '';
                 this.focusIndex = -1;
                 this.unchangedQuery = true;
                 this.values = [];
                 this.filterQueryChange = false;
             },
-            handleKeydown (e) {
+            handleKeydown(e) {
                 const key = e.key || e.code;
                 if ( key === 'Backspace'){
                     return; // so we don't call preventDefault
@@ -611,7 +611,7 @@
 
 
             },
-            navigateOptions(direction){
+            navigateOptions(direction) {
                 const optionsLength = this.flatOptions.length - 1;
 
                 let index = this.focusIndex + direction;
@@ -697,13 +697,13 @@
                     this.updateFocusIndex();
                 }
             },
-            toggleHeaderFocus({type}){
+            toggleHeaderFocus({type}) {
                 if (this.disabled) {
                     return;
                 }
                 this.isFocused = type === 'focus';
             },
-            updateSlotOptions(){
+            updateSlotOptions() {
                 this.slotOptions = this.$slots.default;
             },
             checkUpdateStatus() {
@@ -724,7 +724,7 @@
                     if (!this.multiple) this.dispatch('FormItem', 'on-form-change', this.publicValue);
                 }
             },
-            values(now, before){
+            values(now, before) {
                 const newValue = JSON.stringify(now);
                 const oldValue = JSON.stringify(before);
                 // v-model is always just the value, event with labelInValue === true
@@ -738,7 +738,7 @@
                     this.dispatch('FormItem', 'on-form-change', this.publicValue);
                 }
             },
-            query (query) {
+            query(query) {
                 this.$emit('on-query-change', query);
                 const {remoteMethod, lastRemoteQuery} = this;
                 const hasValidQuery = query !== '' && (query !== lastRemoteQuery || !lastRemoteQuery);
@@ -832,7 +832,7 @@
                 if (options && old && options.length !== old.length) {
                     this.broadcast('Drop', 'on-update-popper');
                 }
-            },
+            }
         }
     };
 </script>

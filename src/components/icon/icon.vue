@@ -24,7 +24,7 @@
                     `${prefixCls}`,
                     {
                         [`${prefixCls}-${this.type}`]: this.type !== '',
-                        [`${this.custom}`]: this.custom !== '',
+                        [`${this.custom}`]: this.custom !== ''
                     }
                 ];
             },
