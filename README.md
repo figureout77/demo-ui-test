@@ -1,26 +1,16 @@
-# demo-ui
+# select-ui-demo
 
-## Project setup
+## Install
+Using npm:
+```bash
+npm install select-ui-demo
 ```
-npm install
-```
+## Usage
+The code below is importing css and js module:
+```javascript
+import 'select-ui-demo/dist/styles/select-ui-demo.css'
+import selectDemo from 'select-ui-demo'
 
-### Compiles and hot-reloads for development
+Vue.use(selectDemo)
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+And please link [iView Doc](https://www.iviewui.com/components/select) to read about `select` component usage.

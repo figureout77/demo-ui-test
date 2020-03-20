@@ -38,7 +38,7 @@
         },
         data () {
             return {
-                searchLabel: '',  // the slot value (textContent)
+                searchLabel: '', // the slot value (textContent)
                 autoComplete: false
             };
         },
@@ -56,7 +56,7 @@
             showLabel () {
                 return (this.label) ? this.label : this.value;
             },
-            optionLabel(){
+            optionLabel (){
                 return this.label || (this.$el && this.$el.textContent);
             }
         },
@@ -66,17 +66,17 @@
 
                 this.dispatch('iSelect', 'on-select-selected', {
                     value: this.value,
-                    label: this.optionLabel,
+                    label: this.optionLabel
                 });
                 this.$emit('on-select-selected', {
                     value: this.value,
-                    label: this.optionLabel,
+                    label: this.optionLabel
                 });
-            },
+            }
         },
         mounted () {
             const Select = findComponentUpward(this, 'iSelect');
             if (Select) this.autoComplete = Select.autoComplete;
-        },
+        }
     };
 </script>

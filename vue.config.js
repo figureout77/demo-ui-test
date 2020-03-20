@@ -13,22 +13,5 @@ module.exports = {
                 javascriptEnabled: true
             }
         }
-    },
-    // 扩展 webpack 配置
-    chainWebpack: config => {
-        // @ 默认指向 src 目录
-        // 新增一个 ~ 指向 plugins
-        config.resolve.alias
-        .set('~', path.resolve('plugins'))
-
-        // 把 plugins 加入编译，因为新增的文件默认是不被 webpack 处理的
-        config.module
-        .rule('js')
-        .include.add(/plugins/).end()
-        .use('babel')
-        .loader('babel-loader')
-        .tap(options => {
-            return options
-        })
     }
 }

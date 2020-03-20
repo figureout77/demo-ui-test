@@ -20,7 +20,7 @@
         data () {
             return {
                 prefixCls: prefixCls,
-                hidden: false    // for search
+                hidden: false // for search
             };
         },
         methods: {

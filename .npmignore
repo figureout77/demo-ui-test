@@ -1,0 +1,13 @@
+.*
+*.md
+*.yml
+build/
+node_modules/
+test/
+gulpfile.js
+
+
+public/
+vue.config.js
+*.map
+*.html

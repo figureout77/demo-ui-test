@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
-import iView from '../src/index';
+import demoUI from '../src/index';
 
-Vue.use(iView);
+Vue.use(demoUI);
 
 Vue.config.productionTip = false;
 

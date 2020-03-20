@@ -5,12 +5,12 @@
 </template>
 <script>
     import Vue from 'vue';
-    const isServer = Vue.prototype.$isServer;
-    import { getStyle } from '../../utils/assist';
-    // popper.js定位引擎
-    const Popper = isServer ? function() {} : require('popper.js/dist/umd/popper.js');  // eslint-disable-line
+    import { getStyle } from '../../utils/assist';  // eslint-disable-line
 
     import { transferIndex, transferIncrease } from '../../utils/transfer-queue';
+    const isServer = Vue.prototype.$isServer;
+    // popper.js定位引擎
+    const Popper = isServer ? function () {} : require('popper.js/dist/umd/popper.js');
 
     export default {
         name: 'Drop',
@@ -64,11 +64,11 @@
                                     boundariesElement: 'window'
                                 }
                             },
-                            onCreate:()=>{
+                            onCreate:() => {
                                 this.resetTransformOrigin();
                                 this.$nextTick(this.popper.update());
                             },
-                            onUpdate:()=>{
+                            onUpdate:() => {
                                 this.resetTransformOrigin();
                             }
                         });
@@ -91,7 +91,7 @@
                     }, 300);
                 }
             },
-            resetTransformOrigin() {
+            resetTransformOrigin () {
                 // 不判断，Select 会报错，不知道为什么
                 if (!this.popper) return;
 
@@ -99,14 +99,14 @@
                 let placementStart = x_placement.split('-')[0];
                 let placementEnd = x_placement.split('-')[1];
                 const leftOrRight = x_placement === 'left' || x_placement === 'right';
-                if(!leftOrRight){
-                    this.popper.popper.style.transformOrigin = placementStart==='bottom' || ( placementStart !== 'top' && placementEnd === 'start') ? 'center top' : 'center bottom';
+                if (!leftOrRight){
+                    this.popper.popper.style.transformOrigin = placementStart === 'bottom' || (placementStart !== 'top' && placementEnd === 'start') ? 'center top' : 'center bottom';
                 }
             },
             handleGetIndex () {
                 transferIncrease();
                 return transferIndex;
-            },
+            }
         },
         created () {
             this.$on('on-update-popper', this.update);

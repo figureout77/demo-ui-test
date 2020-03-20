@@ -70,7 +70,7 @@
                 default: false
             },
             initialLabel: {
-                type: [String, Number, Array],
+                type: [String, Number, Array]
             },
             values: {
                 type: Array,
@@ -78,7 +78,7 @@
             },
             clearable: {
                 type: [Function, Boolean],
-                default: false,
+                default: false
             },
             inputElementId: {
                 type: String
@@ -108,19 +108,19 @@
                 query: '',
                 inputLength: 20,
                 remoteInitialLabel: this.initialLabel,
-                preventRemoteCall: false,
+                preventRemoteCall: false
             };
         },
         computed: {
-            singleDisplayClasses(){
-                const {filterable, multiple, showPlaceholder} = this;
+            singleDisplayClasses (){
+                const { filterable, multiple, showPlaceholder } = this;
                 return [{
                     [prefixCls + '-head-with-prefix']: this.$slots.prefix || this.prefix,
                     [prefixCls + '-placeholder']: showPlaceholder && !filterable,
-                    [prefixCls + '-selected-value']: !showPlaceholder && !multiple && !filterable,
+                    [prefixCls + '-selected-value']: !showPlaceholder && !multiple && !filterable
                 }];
             },
-            singleDisplayValue(){
+            singleDisplayValue (){
                 if ((this.multiple && this.values.length > 0) || this.filterable) return '';
                 return `${this.selectedSingle}` || this.localePlaceholder;
             },
@@ -138,7 +138,7 @@
                 }
                 return status;
             },
-            resetSelect(){
+            resetSelect (){
                 return !this.showPlaceholder && this.clearable;
             },
             inputStyle () {
@@ -157,11 +157,11 @@
             localePlaceholder () {
                 return this.placeholder || 'Select';
             },
-            selectedSingle(){
+            selectedSingle (){
                 const selected = this.values[0];
                 return selected ? selected.label : (this.remoteInitialLabel || '');
             },
-            selectedMultiple(){
+            selectedMultiple (){
                 return this.multiple ? this.values : [];
             },
             // 使用 prefix 时，在 filterable
@@ -207,11 +207,11 @@
             }
         },
         methods: {
-            onInputFocus(){
+            onInputFocus (){
                 this.$emit('on-input-focus');
             },
             onInputBlur () {
-                if (!this.values.length) this.query = '';  // #5155
+                if (!this.values.length) this.query = ''; // #5155
                 this.$emit('on-input-blur');
             },
             removeTag (value) {
@@ -224,16 +224,16 @@
             },
             handleInputDelete (e) {
                 const targetValue = e.target.value;
-                if (this.multiple && this.selectedMultiple.length && this.query === '' && targetValue === '' ) {
+                if (this.multiple && this.selectedMultiple.length && this.query === '' && targetValue === '') {
                     this.removeTag(this.selectedMultiple[this.selectedMultiple.length - 1]);
                 }
             },
-            onHeaderClick(e){
+            onHeaderClick (e){
                 if (this.filterable && e.target === this.$el){
                     this.$refs.input.focus();
                 }
             },
-            onClear(){
+            onClear (){
                 this.$emit('on-clear');
             }
         },
@@ -259,9 +259,9 @@
 
                 this.$emit('on-query-change', val);
             },
-            queryProp(query){
+            queryProp (query){
                 if (query !== this.query) this.query = query;
-            },
+            }
         }
     }
 </script>

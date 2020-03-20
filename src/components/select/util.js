@@ -1,11 +1,11 @@
-export function debounce(fn) {
+export function debounce (fn) {
     let waiting;
-    return function() {
+    return function () {
         if (waiting) return;
         waiting = true;
-        const context = this,
-            args = arguments;
-        const later = function() {
+        const context = this;
+            const args = arguments;
+        const later = function () {
             waiting = false;
             fn.apply(context, args);
         };
