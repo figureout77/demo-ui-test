@@ -8,6 +8,12 @@
 import Select from './components/select.vue'
 export default {
   name: 'app',
+  created() {
+    console.log(this)
+  },
+  mounted() {
+    console.log(this)
+  },
   components: {
     Select
   }
