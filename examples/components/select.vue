@@ -46,10 +46,10 @@
             </Option>
         </Select>
 
-        <h2 style="margin-top:20px">Select with multiple options</h2>
+        <!-- <h2 style="margin-top:20px">Select with multiple options</h2>
         <Select v-model="model6" multiple style="width:260px">
             <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
+        </Select> -->
 
         <h2 style="margin-top:20px">Custom icon</h2>
         <Select v-model="model7" prefix="ios-home" style="width:200px">
